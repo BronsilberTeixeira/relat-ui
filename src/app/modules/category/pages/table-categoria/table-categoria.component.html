@@ -1,0 +1,85 @@
+<div class="form" fxLayout="row" fxLayoutAlign="space-evenly center">
+  <form [formGroup]="formBusca" (ngSubmit)="loadData()" fxFlex="50">
+    <app-busca
+      [filter]="getControl(formBusca, 'filter')"
+      fxFlex="60"
+    ></app-busca>
+
+    <mat-form-field fxFlex="40">
+      <mat-label>Tipos de categoria</mat-label>
+      <mat-select
+        formControlName="categoryTypeId"
+        (selectionChange)="loadData()"
+      >
+        <mat-option *ngFor="let tipo of tiposCategoria" [value]="tipo.id">
+          {{ tipo.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  <button
+    class="btn_novo"
+    fxFlex="10"
+    mat-raised-button
+    color="primary"
+    (click)="criarCategoria()"
+  >
+    <mat-icon>add</mat-icon>
+    Novo
+  </button>
+</div>
+<div fxLayout="row" fxLayoutAlign="center start">
+  <div class="mat-elevation-z8" fxFlex="80">
+    <!-- define a porcentagem ocupada pelo compnente -->
+    <table mat-table matSort aria-label="Elements" class="full-width-table">
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <!-- header da tabela -->
+        <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+        <!-- linha onde os dados são imprimidos -->
+      </ng-container>
+
+      <!-- Name Categoria -->
+      <ng-container matColumnDef="categoryType.name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Tipo de categoria
+        </th>
+        <!-- header da tabela -->
+        <td mat-cell *matCellDef="let row">
+          {{ row.categoryTypeName }}
+        </td>
+        <!-- linha onde os dados são imprimidos -->
+      </ng-container>
+
+      <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef>Ações</th>
+        <td mat-cell *matCellDef="let row">
+          <button
+            fxFlex="10"
+            mat-stroked-button
+            color="warn"
+            (click)="excluirCategoria(row.id)"
+          >
+            <mat-icon>delete_outlined</mat-icon>
+          </button>
+
+          <button
+          fxFlex="10"
+          mat-stroked-button
+          color="accent"
+        >
+          <mat-icon>update</mat-icon>
+        </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator #paginator aria-label="Select page">
+      <!-- paginação da tabela  -->
+    </mat-paginator>
+  </div>
+</div>

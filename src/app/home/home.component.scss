@@ -1,0 +1,48 @@
+a:link {
+  text-decoration: none;
+}
+mat-card {
+  padding-top: 20%;
+  padding-bottom: 5%;
+  margin-top: 20%;
+  text-align: center;
+  max-width: 200px;
+}
+
+.card-brand {
+  background-color: #ad39a2;
+}
+
+.card-categoria {
+  background-color: #2d85b6;
+}
+
+.card-produto {
+  background-color: #fb541f;
+}
+
+.cardTitle {
+  font-size: 30px;
+  padding-top: 30px;
+  height: 190px;
+  margin-top: 30%;
+  color: #ffffff;
+}
+
+.cardContent {
+  padding-bottom: 20px;
+  height: 45px;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.mouseOver {
+  background-color: brown;
+}
+
+img {
+  border-radius: 5px;
+  margin-top: 4%;
+  height: 90%;
+  width: 90%;
+}

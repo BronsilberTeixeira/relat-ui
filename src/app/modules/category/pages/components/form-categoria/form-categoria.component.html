@@ -1,0 +1,21 @@
+<form [formGroup]="formCategoria" fxLayout="column">
+  <mat-form-field fxFlex="100">
+    <mat-label>Nome da categoria</mat-label>
+    <input matInput formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field fxFlex="100">
+    <mat-label>Tipos de categoria</mat-label>
+    <mat-select formControlName="categoryTypeId">
+      <mat-option *ngFor="let tipo of tiposCategoria" [value]="tipo.id">
+        {{ tipo.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button fxFlex="100"
+  mat-flat-button color="primary"
+  (click)="salvar()">
+    Salvar
+  </button>
+</form>
