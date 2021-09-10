@@ -36,7 +36,7 @@ export class FormCategoriaComponent implements OnInit {
     this.categoriaService
       .criarCategoria(this.formCategoria.value)
       .subscribe((dados: any) => {
-        this.snackBar.openSuccess('Parabens!');
+        this.snackBar.openSuccess('Parabens, produto cadastrado com sucesso!');
         this.dialogRef.close();
       });
   }

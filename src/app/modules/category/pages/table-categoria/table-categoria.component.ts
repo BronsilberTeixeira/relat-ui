@@ -118,7 +118,8 @@ export class TableCategoriaComponent implements AfterViewInit {
     }).afterClosed().subscribe((confirma) => {
       if (confirma){
         this.service.deleteCategoria(id).subscribe(() => {
-          this.snackBar.openSuccess('excluido com sucesso!');
+          this.snackBar.openSuccess('excluido com sucesso!')
+          this.loadData();
         })
       }
     });
