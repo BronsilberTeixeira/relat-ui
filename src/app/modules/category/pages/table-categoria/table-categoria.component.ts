@@ -124,6 +124,10 @@ export class TableCategoriaComponent implements AfterViewInit {
       }
     });
   }
+
+  updateCategoria(id: string){
+    this.dialogService.open
+  }
 }
 //Cntrl + shift + R =>
 //sort = ordanação dos dados

@@ -23,4 +23,8 @@ export class CategoriasService {
   deleteCategoria(id: string){
     return this.http.delete<any>(`${this.API}/${id}`);
   }
+
+  updateCategoria(id:string, categoria: any){
+    return this.http.put<any>(`${this.API}/${id}`, categoria);
+  }
 }
